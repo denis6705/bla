@@ -5,8 +5,8 @@
                                 :bind-dn "CN=Admin,OU=GOD,DC=corp,DC=artek,DC=org"
                                 :password "Ckj;ysqGfcc4321"}))
 
-(defn auth [username password]
+(defn authfn [{:keys [user-name password] :as crds}]
   (let [dn (:dn (first (ldap/search ldap-server "DC=corp, DC=artek, DC=org"
-                                  {:filter (str "(sAMAccountName=" username ")")
+                                  {:filter (str "(sAMAccountName=" user-name ")")
                                    :attributes [:dn]})))]
        (ldap/bind? ldap-server dn password)))

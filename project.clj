@@ -18,3 +18,4 @@
   :main ^:skip-aot bla.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
+;  :resource-paths ["src/main/resource"])
